@@ -1,0 +1,1277 @@
+{
+	"info": {
+		"_postman_id": "64e58251-0688-468c-9c89-f6443914d8a3",
+		"name": "实战项目",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录模块",
+			"item": [
+				{
+					"name": "登录成功",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bfa36f23-1466-4650-a644-571c247aceeb",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是true",
+									"",
+									"pm.test(\"断言success是不是true\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(true);",
+									"});",
+									"//断言code是不是10000",
+									"",
+									"pm.test(\"断言code是不是10000\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(10000);",
+									"});",
+									"//断言message是不是\"操作成功！\"",
+									"pm.test(\"断言message\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"操作成功！\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"13800000002\", \"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录 账号未注册",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "65b04e6a-b256-4deb-8251-1ea7d017532d",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"13900000002\", \"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录     密码错误",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b5d4c502-64bc-40fb-a832-c75e4f990af9",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"13900000002\", \"password\":\"456789\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录     国外手机号",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bde8010d-d64a-4302-a805-8a4775605563",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"+11 13900000002\", \"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录     手机为空",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8529ba28-b56f-4d4a-96f4-25dab625665e",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"\", \"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录    密码为空",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46248933-fef9-4370-a8a3-e9f9cbebe8dc",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"13900000002\", \"password\":\"\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录   特殊字符",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e5e1e7a0-5974-41cd-a183-a264e96d1ef6",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"139000*00002\", \"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录成功 多参",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "68ef8c39-acb8-4af9-a377-010906488a89",
+								"exec": [
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是true",
+									"",
+									"pm.test(\"断言success是不是true\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(true);",
+									"});",
+									"//断言code是不是10000",
+									"",
+									"pm.test(\"断言code是不是10000\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(10000);",
+									"});",
+									"//断言message是不是\"操作成功！\"",
+									"pm.test(\"断言message\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"操作成功！\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"13800000002\", \"password\":\"123456\",\"more_params\":\"more_params\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录  缺少mobile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f235436f-502c-485a-b3b1-369f75d93ccf",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录     无参",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1982169e-ed99-4527-b752-e9330d539cca",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录  缺少password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a19467c2-ee21-45cc-9f49-755bd702a644",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"mobile\":\"13800000002\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录   错误参数",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ee18e6e-d2f6-4a16-bb14-348d4a0acf71",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是20001",
+									"",
+									"pm.test(\"断言code是不是20001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(20001);",
+									"});",
+									"//断言message是不是\"用户名或密码错误\"",
+									"pm.test(\"断言message用户名或密码错误\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"用户名或密码错误\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mo0bile\":\"13800000002\", \"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录   null",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ea78089b-53c6-4eee-8c8a-419507966d2d",
+								"exec": [
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是false",
+									"",
+									"pm.test(\"断言success是不是false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"//断言code是不是99999",
+									"",
+									"pm.test(\"断言code是不是99999\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(99999);",
+									"});",
+									"//断言message是不是\"抱歉，系统繁忙，请稍后重试！\"",
+									"pm.test(\"断言message\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"抱歉，系统繁忙，请稍后重试！\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "null"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "员工管理",
+			"item": [
+				{
+					"name": "0员工管理登录",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34746fe2-ad2d-4251-ad53-5bf6a84f3b20",
+								"exec": [
+									"// 1 提取登录接口返回的响应数据",
+									"var jsonData = pm.response.json();",
+									"// 2 保存登录的令牌到环境变量（注意保存保存方式必须和文档一直，也就是",
+									"// 以“Bearer xxx-xxx”形式的字符串",
+									"pm.environment.set(\"token\", \"Bearer \" + jsonData.data);",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"13800000002\", \"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1添加员工",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9202d91c-dc36-4928-96ef-a63c72f5be9f",
+								"exec": [
+									"",
+									"//提取添加员工返回的json数据",
+									"var jsondata = pm.response.json();",
+									"",
+									"//保存添加员工数据的员工id到变量环境",
+									"",
+									"",
+									"pm.environment.set(\"emt_id\", jsondata.data.id);",
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是true",
+									"",
+									"pm.test(\"断言success是不是true\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(true);",
+									"});",
+									"//断言code是不是10000",
+									"",
+									"pm.test(\"断言code是不是10000\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(10000);",
+									"});",
+									"//断言message是不是\"操作成功！\"",
+									"pm.test(\"断言message\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"操作成功！\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"奥特妈993978\",\r\n    \"mobile\":\"1870909378978\",\r\n    \"timeOfEntry\":\"2020-05-05\",\r\n    \"formOfEmployment\":1,\r\n    \"workNumber\":\"1234123\",\r\n    \"departmentName\":\"测试部\",\r\n    \"departmentId\":\"1063678149528784896\",\r\n    \"correctionTime\":\"2020-05-17T16:00:00.000Z\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2员工查询",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dcbbf271-94cc-4a2e-a50c-182f738977a6",
+								"exec": [
+									"",
+									"",
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是true",
+									"",
+									"pm.test(\"断言success是不是true\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(true);",
+									"});",
+									"//断言code是不是10000",
+									"",
+									"pm.test(\"断言code是不是10000\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(10000);",
+									"});",
+									"//断言message是不是\"操作成功！\"",
+									"pm.test(\"断言message\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"操作成功！\");",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/user/{{emt_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"user",
+								"{{emt_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3修改员工",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "289ebac2-a8bb-4faa-8cd9-300e5a1430a4",
+								"exec": [
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是true",
+									"",
+									"pm.test(\"断言success是不是true\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(true);",
+									"});",
+									"//断言code是不是10000",
+									"",
+									"pm.test(\"断言code是不是10000\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(10000);",
+									"});",
+									"//断言message是不是\"操作成功！\"",
+									"pm.test(\"断言message\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"操作成功！\");",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"tom\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/user/{{emt_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"user",
+								"{{emt_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4删除员工",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d66d569-ad54-4ba5-9720-0eed341165b1",
+								"exec": [
+									"",
+									"",
+									"",
+									"",
+									"",
+									"//断言是不是200",
+									"",
+									"pm.test(\"断言是不是200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//断言success是不是true",
+									"",
+									"pm.test(\"断言success是不是true\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(true);",
+									"});",
+									"//断言code是不是10000",
+									"",
+									"pm.test(\"断言code是不是10000\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(10000);",
+									"});",
+									"//断言message是不是\"操作成功！\"",
+									"pm.test(\"断言message\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"操作成功！\");",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sys/user/{{emt_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"user",
+								"{{emt_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
