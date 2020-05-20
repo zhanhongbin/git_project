@@ -1,0 +1,13 @@
+2020-05-20 12:18:24,366 INFO [root] [test_login.py(test01_login:24)] - 登陆成功
+2020-05-20 12:18:24,477 INFO [root] [test_login.py(test01_login:24)] - 账号未注册
+2020-05-20 12:18:24,594 INFO [root] [test_login.py(test01_login:24)] - 登录     密码错误
+2020-05-20 12:18:24,699 INFO [root] [test_login.py(test01_login:24)] - 登录     国外手机号
+2020-05-20 12:18:24,802 INFO [root] [test_login.py(test01_login:24)] - 登录     手机为空
+2020-05-20 12:18:24,926 INFO [root] [test_login.py(test01_login:24)] - 登录    密码为空
+2020-05-20 12:18:25,032 INFO [root] [test_login.py(test01_login:24)] - 登录   特殊字符
+2020-05-20 12:18:25,144 INFO [root] [test_login.py(test01_login:24)] - 登录成功 多参
+2020-05-20 12:18:25,243 INFO [root] [test_login.py(test01_login:24)] - 登录  缺少mobile
+2020-05-20 12:18:25,347 INFO [root] [test_login.py(test01_login:24)] - 登录     无参
+2020-05-20 12:18:25,449 INFO [root] [test_login.py(test01_login:24)] - 登录  缺少password
+2020-05-20 12:18:25,548 INFO [root] [test_login.py(test01_login:24)] - 登录   错误参数
+2020-05-20 12:18:25,659 INFO [root] [test_login.py(test01_login:24)] - 登录   null
