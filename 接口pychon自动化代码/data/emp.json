@@ -1,0 +1,8 @@
+{
+  "test01": {"account": {"mobile":"13800000002", "password":"123456"},"status_code": 200,"success": true,"code": 10000,"message": "操作成功"},
+  "test02": {"username":"詹氏荣耀xs", "mobile": "15014733888","status_code": 200,"success": true,"code": 10000,"message": "操作成功"},
+  "test03": {"status_code": 200,"success": true,"code": 10000,"message": "操作成功"},
+  "test04": {"username": {"username":"迈克杰克逊"},"status_code": 200,"success": true,"code": 10000,"message": "操作成功"},
+  "test05": {"status_code": 200,"success": true,"code": 10000,"message": "操作成功"}
+
+}

@@ -1,0 +1,44 @@
+2020-05-20 22:02:48,312 INFO [root] [test_employee.py(test01_employee_login:26)] - {'success': True, 'code': 10000, 'message': '操作成功！', 'data': 'cda79bdd-d2c1-4c2e-9b96-fab92dc58d7b'}
+2020-05-20 22:02:48,439 INFO [root] [test_employee.py(test02_employee_add:34)] - {'success': True, 'code': 10000, 'message': '操作成功！', 'data': {'id': '1263107991595384832'}}
+2020-05-20 22:02:48,571 INFO [root] [test_employee.py(test03_employee_Inquire:42)] - {'success': True, 'code': 10000, 'message': '操作成功！', 'data': {'id': '1263107991595384832', 'mobile': '15014733888', 'username': '詹氏荣耀xs', 'password': '24c638680c9362443b4158c0c65db6a4', 'enableState': 1, 'createTime': None, 'companyId': '1', 'companyName': '传智播客', 'departmentId': '1063678149528784896', 'timeOfEntry': '2020-05-05T00:00:00.000+0000', 'formOfEmployment': 1, 'workNumber': '1234123', 'formOfManagement': None, 'workingCity': None, 'correctionTime': '2020-05-17T16:00:00.000+0000', 'inServiceStatus': None, 'departmentName': '测试部', 'roleIds': [], 'staffPhoto': None}}
+2020-05-20 22:02:48,698 INFO [root] [test_employee.py(test04_employee_modify:50)] - {'success': True, 'code': 10000, 'message': '操作成功！', 'data': {'id': '1263107991595384832'}}
+2020-05-20 22:02:48,819 INFO [root] [test_employee.py(test05_employee_delete:58)] - {'success': True, 'code': 10000, 'message': '操作成功！', 'data': None}
+2020-05-20 22:02:48,926 INFO [root] [test_login.py(test01_login:24)] - 登陆成功
+2020-05-20 22:02:48,927 INFO [root] [test_login.py(test01_login:25)] - {'success': True, 'code': 10000, 'message': '操作成功！', 'data': 'd293506f-20fe-491f-8b59-d6c743a7ff4b'}
+2020-05-20 22:02:48,927 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '13800000002', 'password': '123456'}
+2020-05-20 22:02:49,042 INFO [root] [test_login.py(test01_login:24)] - 账号未注册
+2020-05-20 22:02:49,043 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:49,043 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '13900000002', 'password': '123456'}
+2020-05-20 22:02:49,160 INFO [root] [test_login.py(test01_login:24)] - 登录     密码错误
+2020-05-20 22:02:49,160 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:49,160 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '13900000002', 'password': '456789'}
+2020-05-20 22:02:49,267 INFO [root] [test_login.py(test01_login:24)] - 登录     国外手机号
+2020-05-20 22:02:49,268 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:49,268 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '+11 13900000002', 'password': '123456'}
+2020-05-20 22:02:49,373 INFO [root] [test_login.py(test01_login:24)] - 登录     手机为空
+2020-05-20 22:02:49,374 INFO [root] [test_login.py(test01_login:25)] - {'success': True, 'code': 10000, 'message': '操作成功！', 'data': '46c11bc2-ff80-4884-82d0-bfda9ff8e3f7'}
+2020-05-20 22:02:49,374 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '', 'password': '123456'}
+2020-05-20 22:02:49,479 INFO [root] [test_login.py(test01_login:24)] - 登录    密码为空
+2020-05-20 22:02:49,479 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:49,479 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '13900000002', 'password': ''}
+2020-05-20 22:02:49,591 INFO [root] [test_login.py(test01_login:24)] - 登录   特殊字符
+2020-05-20 22:02:49,591 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:49,591 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '139000*00002', 'password': '123456'}
+2020-05-20 22:02:49,700 INFO [root] [test_login.py(test01_login:24)] - 登录成功 多参
+2020-05-20 22:02:49,700 INFO [root] [test_login.py(test01_login:25)] - {'success': True, 'code': 10000, 'message': '操作成功！', 'data': '2e6cb61b-e297-4c22-8e9f-26423fa2b365'}
+2020-05-20 22:02:49,700 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '13800000002', 'password': '123456', 'more_params': 'more_params'}
+2020-05-20 22:02:49,802 INFO [root] [test_login.py(test01_login:24)] - 登录  缺少mobile
+2020-05-20 22:02:49,803 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:49,803 INFO [root] [test_login.py(test01_login:26)] - {'password': '123456'}
+2020-05-20 22:02:49,902 INFO [root] [test_login.py(test01_login:24)] - 登录     无参
+2020-05-20 22:02:49,902 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:49,902 INFO [root] [test_login.py(test01_login:26)] - {}
+2020-05-20 22:02:50,005 INFO [root] [test_login.py(test01_login:24)] - 登录  缺少password
+2020-05-20 22:02:50,005 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:50,005 INFO [root] [test_login.py(test01_login:26)] - {'mobile': '13800000002'}
+2020-05-20 22:02:50,112 INFO [root] [test_login.py(test01_login:24)] - 登录   错误参数
+2020-05-20 22:02:50,112 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 20001, 'message': '用户名或密码错误', 'data': None}
+2020-05-20 22:02:50,113 INFO [root] [test_login.py(test01_login:26)] - {'mo0bile': '13800000002', 'password': '123456'}
+2020-05-20 22:02:50,221 INFO [root] [test_login.py(test01_login:24)] - 登录   null
+2020-05-20 22:02:50,221 INFO [root] [test_login.py(test01_login:25)] - {'success': False, 'code': 99999, 'message': '抱歉，系统繁忙，请稍后重试！', 'data': None}
+2020-05-20 22:02:50,221 INFO [root] [test_login.py(test01_login:26)] - None
