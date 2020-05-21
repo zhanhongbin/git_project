@@ -19,7 +19,7 @@ with  open(file_log,"wb") as f:
 
 
 
-
+print("我知道")
 
 
 
